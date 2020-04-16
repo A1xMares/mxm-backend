@@ -1,0 +1,75 @@
+{
+  "name": "Job",
+  "plural": "Jobs",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "default": "$now"
+    },
+    "jobDateTime": {
+      "type": "date",
+      "required": true,
+      "default": "$now"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "sector": {
+      "type": "string",
+      "required": true
+    },
+    "contractorId": {
+      "type": "any",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contractor": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "contractorId"
+    },
+    "postulations": {
+      "type": "hasMany",
+      "model": "Postulation",
+      "foreignKey": "jobId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

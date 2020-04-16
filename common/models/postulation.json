@@ -1,0 +1,43 @@
+{
+  "name": "Postulation",
+  "plural": "Postulations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "jobId": {
+      "type": "any",
+      "required": true
+    },
+    "appUserId": {
+      "type": "any",
+      "required": true
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "default": "$now"
+    },
+    "comment": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "job": {
+      "type": "belongsTo",
+      "model": "Job",
+      "foreignKey": "jobId"
+    },
+    "appUser": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "appUserId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

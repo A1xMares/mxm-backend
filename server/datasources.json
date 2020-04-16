@@ -1,0 +1,7 @@
+{
+  "db": {
+    "url": "mongodb://localhost:27017/mxm",
+    "name": "db",
+    "connector": "mongodb"
+  }
+}
